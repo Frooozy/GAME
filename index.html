@@ -704,4 +704,74 @@
                 ctx.shadowColor = e.variant==='mini'?'#e67e22':'#c0392b';
                 ctx.fillStyle = e.variant==='mini'?'#e67e22':'#c0392b'; ctx.fillRect(e.x,e.y,e.w,e.h);
                 ctx.fillStyle='#fff'; ctx.shadowBlur = 0;
-                ctx.fillRect(e.x+(e.dir==1?e.w*0.4:e.w*0.2), e.y+e.h*0.2, 15, 15); ctx.fillRect(e.x+(e.dir==1?e.w*0.7:e.w*0.5), e.y+e.h*0.2, 15, 15
+                ctx.fillRect(e.x+(e.dir==1?e.w*0.4:e.w*0.2), e.y+e.h*0.2, 15, 15); ctx.fillRect(e.x+(e.dir==1?e.w*0.7:e.w*0.5), e.y+e.h*0.2, 15, 15);
+            } else {
+                ctx.shadowColor = e.type==='shooter'?'#3498db':'#ff4757';
+                ctx.fillStyle = e.type==='shooter'?'#3498db':'#ff4757'; ctx.fillRect(e.x,e.y,e.w,e.h);
+                ctx.fillStyle='#000'; ctx.shadowBlur = 0;
+                ctx.fillRect(e.x+(e.dir==1?18:4), e.y+5, 8, 8);
+                if(e.type==='shooter') { ctx.fillStyle='#fff'; ctx.fillRect(e.x+(e.dir==1?15:-10), e.y+20, 25, 6); }
+            }
+            ctx.shadowBlur = 0; 
+            let pct = Math.max(0, e.hp/e.maxHp);
+            ctx.fillStyle='rgba(0,0,0,0.5)'; ctx.fillRect(e.x-5, e.y-12, e.w+10, 5);
+            ctx.fillStyle='#2ecc71'; ctx.fillRect(e.x-5, e.y-12, (e.w+10)*pct, 5);
+        });
+
+        // Игрок
+        if(player.invul%10 < 5) {
+            ctx.shadowBlur = 20; ctx.shadowColor = '#fff';
+            ctx.fillStyle='#fff'; ctx.fillRect(player.x,player.y,player.w,player.h);
+            const pcx=player.x+player.w/2, pcy=player.y+player.h/3;
+            const angle = Math.atan2(mouse.y - pcy, (mouse.x + camera.x) - pcx);
+            ctx.save(); ctx.translate(pcx, pcy); ctx.rotate(angle);
+            ctx.fillStyle='#000'; ctx.fillRect(0,-5,25,10); ctx.restore();
+            ctx.shadowBlur = 0;
+        }
+
+        // Пули
+        bullets.forEach(b => { 
+            ctx.shadowBlur = 10; ctx.shadowColor = '#00d2ff';
+            ctx.fillStyle='#00d2ff'; ctx.beginPath(); ctx.arc(b.x, b.y, 4, 0, Math.PI*2); ctx.fill(); 
+            ctx.shadowBlur = 0;
+        });
+        
+        enemyBullets.forEach(b => { 
+            ctx.shadowBlur = 10; ctx.shadowColor = '#ff4757';
+            ctx.fillStyle='#ff4757'; ctx.beginPath(); ctx.arc(b.x, b.y, 5, 0, Math.PI*2); ctx.fill(); 
+            ctx.shadowBlur = 0;
+        });
+        
+        // Портал завершения
+        if(portalCoin) {
+            let off = Math.sin(portalCoin.pulse)*10, cx=portalCoin.x+portalCoin.size/2, cy=portalCoin.y+portalCoin.size/2+off;
+            ctx.shadowBlur = 20; ctx.shadowColor = '#ffd200';
+            ctx.fillStyle='#ffd200'; ctx.beginPath(); ctx.arc(cx,cy,30,0,Math.PI*2); ctx.fill();
+            ctx.shadowBlur = 0; ctx.fillStyle='#000'; ctx.font='bold 20px Arial'; ctx.fillText('ВХОД', cx-25, cy+7);
+        }
+
+        // Частицы
+        particles.forEach(p => { 
+            ctx.globalAlpha = p.life / 30;
+            ctx.fillStyle=p.color; ctx.fillRect(p.x,p.y,4,4); 
+            ctx.globalAlpha = 1;
+        });
+        ctx.restore();
+
+        // Затемнение при паузе
+        if(gameState === 'PAUSE_SHOP') {
+            ctx.fillStyle = 'rgba(0,0,0,0.7)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Прицел
+        ctx.strokeStyle='#ff4757'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(mouse.x,mouse.y,12,0,Math.PI*2); ctx.stroke();
+        ctx.fillStyle='#ff4757'; ctx.beginPath(); ctx.arc(mouse.x,mouse.y,2,0,Math.PI*2); ctx.fill();
+    }
+
+    function gameLoop() { update(); draw(); requestAnimationFrame(gameLoop); }
+    updateShopUI(); gameLoop();
+    window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+</script>
+</body>
+</html>
