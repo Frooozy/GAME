@@ -1,59 +1,8 @@
-MISHA
-nonegativa
-Невидимый
-
-MISHA — 16.01.2026 20:59
-Можем очень странные дела начать смотреть
-qqushka — 16.01.2026 20:59
-та не
-я вот сейчас лежу думаю что можно был бы поиграть 
-MISHA — 16.01.2026 21:00
-Ну думаю пока я занят
-qqushka — 16.01.2026 21:00
-но мне почему то вроде бы и хочеться во что то но и впадлу пиздец
-короче не знаю
-впадлу вообще чё то делать мне
-MISHA — 16.01.2026 21:02
-Та ща зайду и посуетим чет
-Ферму пойдем играть
-qqushka — 16.01.2026 21:04
-Ну я сейчас полежу попробую уснуть
-Если не получится тогда пойдем
-MISHA — 17.01.2026 0:12
-Изображение
-qqushka — 24.01.2026 5:44
-Переслано
-FBC: Firebreak
-Free to play until 26.01.2026
-
-Open in browser ↗ ﻿ ﻿ ﻿ ﻿ ﻿ ﻿Open in Steam Client ↗
-﻿
-Изображение
-Изображение
-via freestuffbot.xyz ﻿ ﻿ ﻿ ﻿ ﻿ © Remedy Entertainment
-Можно будет поиграть
-qqushka — 22:52
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Dimension Jumper: Double Jump Update</title>
-    <style>
-
-message.txt
-41 кб
-﻿
-qqushka
-mutherfuckers
-vpotoke
- 
- 
-Запомни братишка одну благодать не ждёт тебя тёлка, а ждёт тебя мать!🤟 🥶  C17H21NO4💉
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Dimension Jumper: Double Jump Update</title>
+    <title>Dimension Jumper: Обновление Двойной Прыжок</title>
     <style>
         body {
             margin: 0;
@@ -64,7 +13,7 @@ vpotoke
         }
         canvas { display: block; }
 
-        /* UI 袠袚袪蝎 */
+        /* ИГРОВОЙ ИНТЕРФЕЙС */
         #ui-bar {
             position: absolute; top: 15px; left: 0; width: 100%;
             display: none; justify-content: center; gap: 15px;
@@ -89,7 +38,7 @@ vpotoke
         .c-death { color: #a4b0be; text-shadow: 0 0 10px #ffffff; }
         .c-kills { color: #a55eea; text-shadow: 0 0 10px #a55eea; }
 
-        /* UI 袘袨小小袗 */
+        /* ИНТЕРФЕЙС БОССА */
         #boss-hp-wrapper {
             display: none; flex-direction: column; align-items: center;
             position: absolute; bottom: 30px; width: 100%; pointer-events: none;
@@ -103,7 +52,7 @@ vpotoke
         #boss-hp-bar { width: 100%; height: 100%; background: linear-gradient(90deg, #c0392b, #e74c3c); transition: width 0.1s; }
         #boss-label { color: #ff4757; font-weight: bold; font-size: 28px; margin-bottom: 5px; text-shadow: 0 0 15px #ff0000; letter-spacing: 3px; }
 
-        /* 袦袝袧挟 袠 袦袗袚袗袟袠袧 */
+        /* ЭКРАНЫ МЕНЮ И МАГАЗИНА */
         .screen {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
@@ -134,7 +83,7 @@ vpotoke
         
         .btn-resume { background: linear-gradient(45deg, #11998e, #38ef7d); box-shadow: 0 0 15px rgba(56, 239, 125, 0.5); }
         
-        /* 袦邪谐邪蟹懈薪 */
+        /* МАГАЗИН */
         .shop-container { 
             display: flex; gap: 30px; margin-bottom: 30px; 
             flex-wrap: wrap; justify-content: center;
@@ -147,7 +96,7 @@ vpotoke
         .shop-icon { font-size: 50px; margin-bottom: 10px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.5)); }
         .shop-val { font-size: 20px; font-weight: bold; color: #00d2ff; margin: 10px 0; }
 
-        /* Volume Slider */
+        /* Громкость */
         .volume-control {
             margin-top: 20px;
             display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -166,7 +115,7 @@ vpotoke
         }
         input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 
-        /* 袨胁械褉谢械懈 */
+        /* ОВЕРЛЕИ */
         #msg-overlay {
             position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%);
             color: #ff4757; font-size: 30px; font-weight: bold;
@@ -195,73 +144,73 @@ vpotoke
     <div id="menu-screen" class="screen">
         <h1>NEON JUMPER</h1>
         <div class="menu-stats">
-            小袦袝袪孝袝袡: <span id="menu-deaths" style="color:#ff4757">0</span> | 袦袨袧袝孝蝎 小袚袨袪袗挟孝!
+            СМЕРТЕЙ: <span id="menu-deaths" style="color:#ff4757">0</span> | МОНЕТЫ СГОРАЮТ ПРИ СМЕРТИ!
         </div>
-        <button class="btn" onclick="startGame()">袠袚袪袗孝鞋</button>
-        <button class="btn btn-shop" onclick="openShopFromMenu()">袦袗袚袗袟袠袧</button>
+        <button class="btn" onclick="startGame()">ИГРАТЬ</button>
+        <button class="btn btn-shop" onclick="openShopFromMenu()">МАГАЗИН</button>
         
         <div class="volume-control">
-            <div class="vol-label">袚袪袨袦袣袨小孝鞋: <span id="vol-val-menu">30%</span></div>
+            <div class="vol-label">ГРОМКОСТЬ: <span id="vol-val-menu">30%</span></div>
             <input type="range" id="vol-slider-menu" min="0" max="1" step="0.01" value="0.3" oninput="updateVolume(this.value)">
         </div>
     </div>
 
     <div id="shop-screen" class="screen hidden">
-        <h1 id="shop-title">UPGRADES</h1>
-        <div id="bank-display-shop" style="color:#ffd200; font-size:32px; margin-bottom:30px; text-shadow: 0 0 10px #ffd200;">0 馃挵</div>
+        <h1 id="shop-title">УЛУЧШЕНИЯ</h1>
+        <div id="bank-display-shop" style="color:#ffd200; font-size:32px; margin-bottom:30px; text-shadow: 0 0 10px #ffd200;">0 💰</div>
         
         <div class="shop-container">
             <div class="shop-item">
-                <div class="shop-icon">鈿旓笍</div>
-                <div style="font-weight:bold;">校袪袨袧</div>
-                <div class="shop-val">校袪. <span id="dmg-lvl">1</span></div>
-                <div>小袠袥袗: <span id="dmg-val" style="color:white">1</span></div>
+                <div class="shop-icon">⚒️</div>
+                <div style="font-weight:bold;">УРОН</div>
+                <div class="shop-val">УР. <span id="dmg-lvl">1</span></div>
+                <div>СИЛА: <span id="dmg-val" style="color:white">1</span></div>
                 <button class="btn" style="width:100%; margin:15px 0; font-size:18px; padding:8px;" onclick="buyUpgrade('damage')">
-                    <span id="dmg-cost">15</span> 馃挵
+                    <span id="dmg-cost">15</span> 💰
                 </button>
             </div>
             <div class="shop-item">
-                <div class="shop-icon">鉂わ笍</div>
-                <div style="font-weight:bold;">袞袠袟袧袠</div>
-                <div class="shop-val">校袪. <span id="hp-lvl">1</span></div>
-                <div>袦袗袣小: <span id="hp-val" style="color:white">3</span></div>
+                <div class="shop-icon">❤️</div>
+                <div style="font-weight:bold;">ЖИЗНИ</div>
+                <div class="shop-val">УР. <span id="hp-lvl">1</span></div>
+                <div>МАКС: <span id="hp-val" style="color:white">3</span></div>
                 <button class="btn" style="width:100%; margin:15px 0; font-size:18px; padding:8px;" onclick="buyUpgrade('hp')">
-                    <span id="hp-cost">15</span> 馃挵
+                    <span id="hp-cost">15</span> 💰
                 </button>
             </div>
             <div class="shop-item">
-                <div class="shop-icon">馃И</div>
-                <div style="font-weight:bold;">袥袝效袝袧袠袝</div>
+                <div class="shop-icon">🧪</div>
+                <div style="font-weight:bold;">ЛЕЧЕНИЕ</div>
                 <div class="shop-val">FULL</div>
-                <div>袙袨小小孝袗袧袨袙袠孝鞋</div>
+                <div>ВОССТАНОВИТЬ</div>
                 <button class="btn" style="width:100%; margin:15px 0; font-size:18px; padding:8px;" onclick="buyUpgrade('heal')">
-                    <span id="heal-cost">30</span> 馃挵
+                    <span id="heal-cost">30</span> 💰
                 </button>
             </div>
         </div>
         
-        <button id="btn-shop-back" class="btn btn-resume" onclick="closeShop()">袩袪袨袛袨袥袞袠孝鞋</button>
+        <button id="btn-shop-back" class="btn btn-resume" onclick="closeShop()">ПРОДОЛЖИТЬ</button>
 
         <div class="volume-control" style="margin-top: 10px;">
-            <div class="vol-label">袚袪袨袦袣袨小孝鞋: <span id="vol-val-shop">30%</span></div>
+            <div class="vol-label">ГРОМКОСТЬ: <span id="vol-val-shop">30%</span></div>
             <input type="range" id="vol-slider-shop" min="0" max="1" step="0.01" value="0.3" oninput="updateVolume(this.value)">
         </div>
     </div>
 
     <div id="ui-bar">
-        <div class="stat-box">LVL <span id="ui-lvl" class="c-lvl">1</span></div>
+        <div class="stat-box">УР <span id="ui-lvl" class="c-lvl">1</span></div>
         <div class="stat-box">HP <span id="ui-hp" class="c-hp">3</span></div>
-        <div class="stat-box">DMG <span id="ui-dmg" style="color:#fff">1</span></div>
-        <div class="stat-box">AMMO <span id="ui-ammo" class="c-ammo">20</span></div>
-        <div class="stat-box">KILLS <span id="ui-kills" class="c-kills">0</span></div>
-        <div class="stat-box">馃挵 <span id="ui-coins" class="c-coins">0</span></div>
-        <div class="stat-box">馃拃 <span id="ui-deaths" class="c-death">0</span></div>
+        <div class="stat-box">УРОН <span id="ui-dmg" style="color:#fff">1</span></div>
+        <div class="stat-box">ПАТРОНЫ <span id="ui-ammo" class="c-ammo">20</span></div>
+        <div class="stat-box">УБИТО <span id="ui-kills" class="c-kills">0</span></div>
+        <div class="stat-box">💰 <span id="ui-coins" class="c-coins">0</span></div>
+        <div class="stat-box">💀 <span id="ui-deaths" class="c-death">0</span></div>
     </div>
     
-    <div id="esc-hint">[ESC] PAUSE</div>
-    <div id="boss-hp-wrapper"><div id="boss-label">BOSS</div><div id="boss-hp-border"><div id="boss-hp-bar"></div></div></div>
-    <div id="boss-title">BOSS FIGHT</div>
-    <div id="msg-overlay">NO AMMO!</div>
+    <div id="esc-hint">[ESC] ПАУЗА / МАГАЗИН</div>
+    <div id="boss-hp-wrapper"><div id="boss-label">БОСС</div><div id="boss-hp-border"><div id="boss-hp-bar"></div></div></div>
+    <div id="boss-title">БИТВА С БОССОМ</div>
+    <div id="msg-overlay">НЕТ ПАТРОНОВ!</div>
     <div id="flash-overlay"></div>
     <canvas id="gameCanvas"></canvas>
 
@@ -271,7 +220,7 @@ vpotoke
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // --- 袟袙校袣袨袙袨袡 袛袙袠袞袨袣 ---
+    // --- ЗВУКОВОЙ ДВИЖОК ---
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     const masterGain = audioCtx.createGain();
     masterGain.gain.value = 0.3; 
@@ -338,11 +287,11 @@ vpotoke
         }
     }
 
-    // 袛邪薪薪褘械
+    // ДАННЫЕ ИГРОКА И УЛУЧШЕНИЙ
     let upgrades = { damage: 1, maxHp: 3, dmgLevel: 1, hpLevel: 1, dmgCost: 15, hpCost: 15, healCost: 30 };
     let totalDeaths = 0; 
 
-    // 肖袠袟袠袣袗
+    // КОНФИГУРАЦИЯ ФИЗИКИ
     const CONFIG = {
         gravity: 0.45, groundFriction: 0.83, airFriction: 0.95,
         acceleration: 0.15, maxSpeed: 2.4, jumpForce: -10.5, variableJump: 0.5,
@@ -354,13 +303,13 @@ vpotoke
     let stats = { level: 1, kills: 0, coins: 0 };
     let mouse = { x: 0, y: 0 };
     
-    // player.jumpCount - 褋褔械褌褔懈泻 锌褉褘卸泻芯胁 写谢褟 写胁芯泄薪芯谐芯 锌褉褘卸泻邪
+    // Игрок: jumpCount - счетчик для двойного прыжка
     let player = { x: 100, y: 100, w: 30, h: 46, vx: 0, vy: 0, hp: 3, maxHp: 3, ammo: 25, cooldown: 0, invul: 0, onGround: false, coyoteTime: 0, jumpBuffer: 0, jumpCount: 0 };
     let platforms = [], enemies = [], bullets = [], enemyBullets = [], particles = [], lootItems = [], portalCoin = null;
     let camera = { x: 0, y: 0 };
     let activeBoss = null;
 
-    // UI 小褋褘谢泻懈
+    // Ссылки на элементы UI
     const menuScreen = document.getElementById('menu-screen');
     const shopScreen = document.getElementById('shop-screen');
     const uiBar = document.getElementById('ui-bar');
@@ -377,10 +326,10 @@ vpotoke
     const uiDeaths = document.getElementById('ui-deaths');
     const uiKills = document.getElementById('ui-kills');
 
-    // --- 校袩袪袗袙袥袝袧袠袝 UI ---
+    // --- УПРАВЛЕНИЕ ИНТЕРФЕЙСОМ ---
     function updateShopUI() {
         let currentMoney = (gameState === 'SHOP' || gameState === 'PAUSE_SHOP') ? stats.coins : 0;
-        document.getElementById('bank-display-shop').innerText = `${currentMoney} 馃挵`;
+        document.getElementById('bank-display-shop').innerText = `${currentMoney} 💰`;
         document.getElementById('dmg-lvl').innerText = upgrades.dmgLevel;
         document.getElementById('dmg-val').innerText = upgrades.damage;
         document.getElementById('dmg-cost').innerText = upgrades.dmgCost;
@@ -395,7 +344,7 @@ vpotoke
         playSound('ui');
         stats.coins = 0; previousState = 'MENU';
         menuScreen.classList.add('hidden'); shopScreen.classList.remove('hidden');
-        shopTitle.innerText = "UPGRADES (MENU)"; btnShopBack.innerText = "袧袗袟袗袛"; btnShopBack.className = "btn btn-back";
+        shopTitle.innerText = "УЛУЧШЕНИЯ (ГЛАВНОЕ МЕНЮ)"; btnShopBack.innerText = "НАЗАД"; btnShopBack.className = "btn btn-back";
         gameState = 'SHOP'; updateShopUI();
     }
 
@@ -403,8 +352,8 @@ vpotoke
         if(gameState === 'GAME') {
             playSound('ui');
             previousState = 'GAME'; gameState = 'PAUSE_SHOP';
-            shopScreen.classList.remove('hidden'); shopTitle.innerText = "PAUSE / SHOP";
-            btnShopBack.innerText = "RESUME"; btnShopBack.className = "btn btn-resume";
+            shopScreen.classList.remove('hidden'); shopTitle.innerText = "ПАУЗА / МАГАЗИН";
+            btnShopBack.innerText = "ВЕРНУТЬСЯ В ИГРУ"; btnShopBack.className = "btn btn-resume";
             updateShopUI();
         } else if (gameState === 'PAUSE_SHOP') closeShop();
     }
@@ -444,7 +393,7 @@ vpotoke
         menuScreen.classList.remove('hidden'); updateShopUI();
     }
 
-    // --- 袚袝袧袝袪袗笑袠携 ---
+    // --- ГЕНЕРАЦИЯ МИРА ---
     function generateWorld(resetGame = false) {
         if(resetGame) { stats.level = 1; stats.kills = 0; stats.coins = 0; player.hp = player.maxHp; player.ammo = CONFIG.startAmmo; }
         platforms=[]; enemies=[]; bullets=[]; enemyBullets=[]; particles=[]; lootItems=[]; portalCoin=null; activeBoss=null;
@@ -476,21 +425,27 @@ vpotoke
     }
 
     function setupMiniBoss() {
-        showTitle("鈿狅笍 MINI BOSS 鈿狅笍", "#e67e22");
-        platforms.push({ x:-200, y:window.innerHeight-100, w:1500, h:100, color:'#444' }); platforms.push({ x:-200, y:0, w:50, h:window.innerHeight, color:'#222' }); platforms.push({ x:1250, y:0, w:50, h:window.innerHeight, color:'#222' });
+        showTitle("⚠️ МИНИ-БОСС ⚠️", "#e67e22");
+        platforms.push({ x:-200, y:window.innerHeight-100, w:1500, h:100, color:'#444' }); 
+        platforms.push({ x:-200, y:0, w:50, h:window.innerHeight, color:'#222' }); 
+        platforms.push({ x:1250, y:0, w:50, h:window.innerHeight, color:'#222' });
         spawnAmmo(4, 300, 200);
         activeBoss = { type:'boss', variant:'mini', x:800, y:window.innerHeight-250, w:60, h:60, vx:0, vy:0, dir:-1, hp:80, maxHp:80, actionTimer:0 };
         enemies.push(activeBoss);
-        bossLabel.innerText="MINI BOSS"; bossLabel.style.color="#e67e22"; bossBar.style.background="linear-gradient(90deg, #e67e22, #f1c40f)"; bossWrapper.style.display='flex';
+        bossLabel.innerText="МИНИ-БОСС"; bossLabel.style.color="#e67e22"; bossBar.style.background="linear-gradient(90deg, #e67e22, #f1c40f)"; bossWrapper.style.display='flex';
     }
+
     function setupFinalBoss() {
-        showTitle("鈽狅笍 FINAL BOSS 鈽狅笍", "#c0392b");
-        platforms.push({ x:-200, y:window.innerHeight-100, w:2000, h:100, color:'#2c3e50' }); platforms.push({ x:-200, y:0, w:50, h:window.innerHeight, color:'#222' }); platforms.push({ x:1750, y:0, w:50, h:window.innerHeight, color:'#222' });
+        showTitle("👹 ФИНАЛЬНЫЙ БОСС 👹", "#c0392b");
+        platforms.push({ x:-200, y:window.innerHeight-100, w:2000, h:100, color:'#2c3e50' }); 
+        platforms.push({ x:-200, y:0, w:50, h:window.innerHeight, color:'#222' }); 
+        platforms.push({ x:1750, y:0, w:50, h:window.innerHeight, color:'#222' });
         spawnAmmo(8, 300, 250);
         activeBoss = { type:'boss', variant:'final', x:1200, y:window.innerHeight-250, w:120, h:120, vx:0, vy:0, dir:-1, hp:200, maxHp:200, actionTimer:0 };
         enemies.push(activeBoss);
-        bossLabel.innerText="FINAL BOSS"; bossLabel.style.color="#c0392b"; bossBar.style.background="linear-gradient(90deg, #c0392b, #8e44ad)"; bossWrapper.style.display='flex';
+        bossLabel.innerText="ФИНАЛЬНЫЙ БОСС"; bossLabel.style.color="#c0392b"; bossBar.style.background="linear-gradient(90deg, #c0392b, #8e44ad)"; bossWrapper.style.display='flex';
     }
+
     function spawnLoot(x,y,w) { if(Math.random()<0.6) lootItems.push({type:'coin',x:x+w/2,y:y-30,size:14}); if(Math.random()<CONFIG.ammoSpawnRate) lootItems.push({type:'ammo',x:x+w/2,y:y-30,w:20,h:20,amount:5}); }
     function spawnAmmo(n,x,s) { for(let i=0; i<n; i++) lootItems.push({type:'ammo',x:x+i*s,y:window.innerHeight-140,w:20,h:20,amount:5}); }
     function showTitle(t,c) { 
@@ -498,7 +453,7 @@ vpotoke
         bossTitle.innerText=t; bossTitle.style.color=c; bossTitle.style.display='block'; setTimeout(()=>bossTitle.style.display='none',3000); 
     }
 
-    // --- INPUT ---
+    // --- УПРАВЛЕНИЕ ---
     const keys = {};
     window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
     window.addEventListener('mousedown', e => { if(e.button === 0 && gameState === 'GAME') shoot(); });
@@ -506,16 +461,16 @@ vpotoke
         if (e.code === 'Escape') { if (gameState === 'GAME' || gameState === 'PAUSE_SHOP') togglePauseShop(); return; }
         keys[e.code] = true;
         if ((e.code === 'Space' || e.code === 'ArrowUp') && gameState === 'GAME') {
-            // 袥袨袚袠袣袗 袩袪蝎袞袣袗
-            // 袝褋谢懈 斜芯褋褋 (谢胁谢 5 懈谢懈 10) 袠 懈谐褉芯泻 胁 胁芯蟹写褍褏械 袠 褍卸械 锌褉褘谐薪褍谢 芯写懈薪 褉邪蟹 -> 袛袙袨袡袧袨袡 袩袪蝎袞袨袣
+            // Логика прыжка:
+            // Если игрок на боссе (5 или 10 ур), не на земле и еще не использовал двойной прыжок
             if((stats.level === 5 || stats.level === 10) && !player.onGround && player.coyoteTime <= 0 && player.jumpCount < 2) {
-                 player.vy = CONFIG.jumpForce; // 袩褉懈屑械薪褟械屑 褋懈谢褍 锌褉褘卸泻邪
-                 player.jumpCount = 2; // 袘谢芯泻懈褉褍械屑 写邪谢褜薪械泄褕懈械 锌褉褘卸泻懈
+                 player.vy = CONFIG.jumpForce; 
+                 player.jumpCount = 2; // Блокируем дальнейшие прыжки до касания земли
                  playSound('jump');
-                 spawnParticles(player.x+player.w/2, player.y+player.h, '#fff', 10); // 袘械谢褘械 褔邪褋褌懈褑褘
+                 spawnParticles(player.x+player.w/2, player.y+player.h, '#fff', 10);
                  player.jumpBuffer = 0;
             } else {
-                 player.jumpBuffer = 10; // 袨斜褘褔薪褘泄 斜褍褎械褉 写谢褟 锌褉褘卸泻邪 褋 蟹械屑谢懈
+                 player.jumpBuffer = 10; 
             }
         }
     });
@@ -534,7 +489,7 @@ vpotoke
         bullets.push({ x:pcx, y:pcy, vx:Math.cos(angle)*CONFIG.bulletSpeed, vy:Math.sin(angle)*CONFIG.bulletSpeed, life:80 });
     }
 
-    // --- UPDATE ---
+    // --- ОБНОВЛЕНИЕ СОСТОЯНИЯ ---
     function update() {
         if(gameState !== 'GAME') return;
 
@@ -555,10 +510,10 @@ vpotoke
 
         player.vy += CONFIG.gravity;
 
-        // 袨袘袪袗袘袨孝袣袗 袩袪蝎袞袣袗 小 袟袝袦袥袠
+        // Прыжок с земли
         if (player.jumpBuffer > 0 && (player.onGround || player.coyoteTime > 0)) {
             playSound('jump'); player.vy = CONFIG.jumpForce; player.jumpBuffer = 0; player.coyoteTime = 0; player.onGround = false;
-            player.jumpCount = 1; // 校泻邪蟹褘胁邪械屑, 褔褌芯 锌械褉胁褘泄 锌褉褘卸芯泻 褋芯胁械褉褕械薪
+            player.jumpCount = 1; 
         }
 
         player.x += player.vx; player.y += player.vy;
@@ -574,12 +529,12 @@ vpotoke
         if (groundedThisFrame) { 
             player.onGround = true; 
             player.coyoteTime = 6; 
-            player.jumpCount = 0; // 小斜褉邪褋褘胁邪械屑 褋褔械褌褔懈泻 锌褉褘卸泻芯胁 薪邪 蟹械屑谢械
+            player.jumpCount = 0; 
         } else { player.onGround = false; }
         
         if (player.y > canvas.height + 200) die();
 
-        // 袩褍谢懈
+        // Обработка пуль игрока
         for(let i=bullets.length-1; i>=0; i--) {
             let b = bullets[i]; b.x += b.vx; b.y += b.vy; b.life--;
             let hitWall = platforms.some(p => rectCollide({x:b.x, y:b.y, w:5, h:5}, p));
@@ -595,13 +550,14 @@ vpotoke
                 }
             }
         }
-        // 袙褉邪谐懈 锌褍谢懈
+        // Обработка пуль врагов
         for(let i=enemyBullets.length-1; i>=0; i--) {
             let b = enemyBullets[i]; b.x += b.vx; b.y += b.vy; b.life--;
             if(rectCollide(player, {x:b.x, y:b.y, w:8, h:8})) { takeDamage(); enemyBullets.splice(i, 1); continue; }
             if(platforms.some(p => rectCollide({x:b.x, y:b.y, w:8, h:8}, p))) { enemyBullets.splice(i, 1); continue; }
             if(b.life <= 0) enemyBullets.splice(i,1);
         }
+        // Враги
         enemies.forEach(e => {
             if(e.type !== 'boss') { e.x += e.speed * 0.5 * e.dir; if(e.x < e.startX || e.x > e.endX) e.dir *= -1; }
             if(e.type === 'shooter') {
@@ -614,7 +570,7 @@ vpotoke
             } else if(e.type === 'boss') updateBossAI(e);
             if(rectCollide(player, e) && player.invul <= 0) takeDamage();
         });
-        // 袥褍褌
+        // Сбор лута
         for(let i=lootItems.length-1; i>=0; i--) {
             let item = lootItems[i];
             let hb = item.type==='coin' ? {x:item.x-item.size, y:item.y-item.size, w:item.size*2, h:item.size*2} : item;
@@ -628,6 +584,7 @@ vpotoke
                 lootItems.splice(i, 1);
             }
         }
+        // Портал
         if(portalCoin) {
             portalCoin.pulse += 0.1;
             let dx = (player.x+player.w/2)-(portalCoin.x+portalCoin.size/2), dy = (player.y+player.h/2)-(portalCoin.y+portalCoin.size/2);
@@ -679,7 +636,7 @@ vpotoke
     function die() {
         playSound('explosion'); for(let k in keys) keys[k] = false; 
         totalDeaths++;
-        alert(`袟袗袘袝袚 袨袣袨袧效袝袧\n校褉芯胁械薪褜: ${stats.level}\n校斜懈褌芯 胁褉邪谐芯胁: ${stats.kills}\n袦芯薪械褌褘 锌芯褌械褉褟薪褘!`);
+        alert(`ЗАБЕГ ОКОНЧЕН\nДостигнут уровень: ${stats.level}\nУбито врагов: ${stats.kills}\nВсе накопленные монеты потеряны!`);
         returnToMenu();
     }
 
@@ -690,6 +647,7 @@ vpotoke
         return (b1.x < b2.x+b2.w && b1.x+b1.w > b2.x && b1.y < b2.y+b2.h && b1.y+b1.h > b2.y);
     }
     function spawnParticles(x, y, color, count) { for(let i=0; i<count; i++) particles.push({ x, y, vx:(Math.random()-0.5)*12, vy:(Math.random()-0.5)*12, life:30, color }); }
+    
     function updateGameUI() {
         document.getElementById('ui-lvl').innerText = stats.level;
         document.getElementById('ui-hp').innerText = player.hp + "/" + player.maxHp;
@@ -701,7 +659,7 @@ vpotoke
         uiKills.innerText = stats.kills;
     }
 
-    // --- 袨孝袪袠小袨袙袣袗 ---
+    // --- ОТРИСОВКА ---
     function draw() {
         if(gameState === 'MENU' || gameState === 'SHOP') { ctx.fillStyle = '#050505'; ctx.fillRect(0,0,canvas.width,canvas.height); return; }
 
@@ -717,6 +675,7 @@ vpotoke
 
         ctx.save(); ctx.translate(-Math.floor(camera.x), 0);
 
+        // Платформы
         ctx.shadowBlur = 10; ctx.shadowColor = '#00d2ff';
         platforms.forEach(p => { 
             ctx.fillStyle = '#000'; ctx.strokeStyle = '#00d2ff'; ctx.lineWidth = 2;
@@ -724,6 +683,7 @@ vpotoke
         });
         ctx.shadowBlur = 0;
 
+        // Предметы
         lootItems.forEach(i => {
             if(i.type === 'coin') {
                 ctx.fillStyle='#ffd200'; ctx.beginPath(); ctx.arc(i.x, i.y, i.size, 0, Math.PI*2); ctx.fill();
@@ -737,76 +697,11 @@ vpotoke
             }
         });
 
+        // Враги
         enemies.forEach(e => {
             ctx.shadowBlur = 15; 
             if(e.type === 'boss') {
                 ctx.shadowColor = e.variant==='mini'?'#e67e22':'#c0392b';
                 ctx.fillStyle = e.variant==='mini'?'#e67e22':'#c0392b'; ctx.fillRect(e.x,e.y,e.w,e.h);
                 ctx.fillStyle='#fff'; ctx.shadowBlur = 0;
-                ctx.fillRect(e.x+(e.dir==1?e.w*0.4:e.w*0.2), e.y+e.h*0.2, 15, 15); ctx.fillRect(e.x+(e.dir==1?e.w*0.7:e.w*0.5), e.y+e.h*0.2, 15, 15);
-            } else {
-                ctx.shadowColor = e.type==='shooter'?'#3498db':'#ff4757';
-                ctx.fillStyle = e.type==='shooter'?'#3498db':'#ff4757'; ctx.fillRect(e.x,e.y,e.w,e.h);
-                ctx.fillStyle='#000'; ctx.shadowBlur = 0;
-                ctx.fillRect(e.x+(e.dir==1?18:4), e.y+5, 8, 8);
-                if(e.type==='shooter') { ctx.fillStyle='#fff'; ctx.fillRect(e.x+(e.dir==1?15:-10), e.y+20, 25, 6); }
-            }
-            ctx.shadowBlur = 0; 
-            let pct = Math.max(0, e.hp/e.maxHp);
-            ctx.fillStyle='rgba(0,0,0,0.5)'; ctx.fillRect(e.x-5, e.y-12, e.w+10, 5);
-            ctx.fillStyle='#2ecc71'; ctx.fillRect(e.x-5, e.y-12, (e.w+10)*pct, 5);
-        });
-
-        if(player.invul%10 < 5) {
-            ctx.shadowBlur = 20; ctx.shadowColor = '#fff';
-            ctx.fillStyle='#fff'; ctx.fillRect(player.x,player.y,player.w,player.h);
-            const pcx=player.x+player.w/2, pcy=player.y+player.h/3;
-            const angle = Math.atan2(mouse.y - pcy, (mouse.x + camera.x) - pcx);
-            ctx.save(); ctx.translate(pcx, pcy); ctx.rotate(angle);
-            ctx.fillStyle='#000'; ctx.fillRect(0,-5,25,10); ctx.restore();
-            ctx.shadowBlur = 0;
-        }
-
-        bullets.forEach(b => { 
-            ctx.shadowBlur = 10; ctx.shadowColor = '#00d2ff';
-            ctx.fillStyle='#00d2ff'; ctx.beginPath(); ctx.arc(b.x, b.y, 4, 0, Math.PI*2); ctx.fill(); 
-            ctx.shadowBlur = 0;
-        });
-        
-        enemyBullets.forEach(b => { 
-            ctx.shadowBlur = 10; ctx.shadowColor = '#ff4757';
-            ctx.fillStyle='#ff4757'; ctx.beginPath(); ctx.arc(b.x, b.y, 5, 0, Math.PI*2); ctx.fill(); 
-            ctx.shadowBlur = 0;
-        });
-        
-        if(portalCoin) {
-            let off = Math.sin(portalCoin.pulse)*10, cx=portalCoin.x+portalCoin.size/2, cy=portalCoin.y+portalCoin.size/2+off;
-            ctx.shadowBlur = 20; ctx.shadowColor = '#ffd200';
-            ctx.fillStyle='#ffd200'; ctx.beginPath(); ctx.arc(cx,cy,30,0,Math.PI*2); ctx.fill();
-            ctx.shadowBlur = 0; ctx.fillStyle='#000'; ctx.font='20px Arial'; ctx.fillText('GO', cx-15, cy+7);
-        }
-
-        particles.forEach(p => { 
-            ctx.globalAlpha = p.life / 30;
-            ctx.fillStyle=p.color; ctx.fillRect(p.x,p.y,4,4); 
-            ctx.globalAlpha = 1;
-        });
-        ctx.restore();
-
-        if(gameState === 'PAUSE_SHOP') {
-            ctx.fillStyle = 'rgba(0,0,0,0.7)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
-
-        ctx.strokeStyle='#ff4757'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(mouse.x,mouse.y,12,0,Math.PI*2); ctx.stroke();
-        ctx.fillStyle='#ff4757'; ctx.beginPath(); ctx.arc(mouse.x,mouse.y,2,0,Math.PI*2); ctx.fill();
-    }
-
-    function gameLoop() { update(); draw(); requestAnimationFrame(gameLoop); }
-    updateShopUI(); gameLoop();
-    window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
-
-</script>
-</body>
-</html>
-message.txt
-41 кб
+                ctx.fillRect(e.x+(e.dir==1?e.w*0.4:e.w*0.2), e.y+e.h*0.2, 15, 15); ctx.fillRect(e.x+(e.dir==1?e.w*0.7:e.w*0.5), e.y+e.h*0.2, 15, 15
